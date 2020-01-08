@@ -4,15 +4,20 @@
 
 <h1>Products</h1>
 
+ <div class="container">
+  <div class="jumbotron">
+    <%= form_for products_path, :method => 'get' do %>
+      <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+      </p>
+    <% end %>
+  </div>
+</div>
 
 
 <table>
-  <% form_tag products_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
+  
   <thead>
   </thead>
 
@@ -36,6 +41,9 @@
       </tr>
 
     <% end %>
+
+
+
   </tbody>
 </table>
 
