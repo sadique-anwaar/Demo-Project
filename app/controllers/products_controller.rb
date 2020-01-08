@@ -8,8 +8,10 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+
   # GET /products/1
   # GET /products/1.json
+
   def show
   end
 
@@ -38,6 +40,7 @@ class ProductsController < ApplicationController
     end
   end
 
+
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
@@ -51,6 +54,7 @@ class ProductsController < ApplicationController
       end
     end
   end
+
 
   # DELETE /products/1
   # DELETE /products/1.json
@@ -70,6 +74,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :price, :quantity, :description)
+      params.require(:product).permit(:name, :price, :quantity, :description, images: [])
     end
 end

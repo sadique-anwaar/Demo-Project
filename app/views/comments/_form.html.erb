@@ -1,0 +1,12 @@
+
+
+<%= form_with(model: [ @product, @product.comments.build ], remote: true) do |form| %>
+
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_field :body, class: 'form-control commentbox', autofocus: true, :id => 'commentbox' %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
