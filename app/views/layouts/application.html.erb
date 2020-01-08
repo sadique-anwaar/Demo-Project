@@ -23,7 +23,7 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><%= link_to "Home", home_path%></li>
+              <li><%= link_to "Home", products_path%></li>
               <li><%= link_to "About Us", about_path %></li>
               <li><%= link_to "Contact Us", contact_path %></li>
             </ul>
@@ -38,12 +38,38 @@
               </div>
             </form>            
             <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to 'View Products' , products_path %></li>
             </li>
             <% if user_signed_in? %>
               <li><%= link_to 'Add Product' , new_product_path %></li>
-              <li><%= link_to 'Account' , edit_user_registration_path %></li>
-              <li><%= link_to 'Sign Out' , destroy_user_session_path, :method => :delete%></li>
+              <li class="dropdown">
+                <a id="nav_drop" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  <%= current_user.name%>
+                  <%= image_tag(current_user.avatar , class: "img-circular" , id:"nav_image")%>
+                  <span class="caret"></span>
+                </a>
+                
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Account' , edit_user_registration_path %></li>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to 'Sign Out' , destroy_user_session_path, :method => :delete%></li>
+
+                </ul>
+              </li>
+                    <!-- <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Dropdown
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><%= link_to 'Account' , edit_user_registration_path %></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li><%= link_to 'Sign Out' , destroy_user_session_path, :method => :delete%></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div -->
+                
+              
             <% else %>
                 <li><%= link_to 'Sign In' , new_user_session_path %></li>
                 <li><%= link_to 'Sign Up' , new_user_registration_path %></li>
@@ -56,4 +82,6 @@
       </nav>
     <%= yield %>
   </body>
+
 </html>
+
