@@ -4,9 +4,12 @@ class ProductsController < ApplicationController
 
   # GET /products
   # GET /products.json
+
   def index
-    @products = Product.all
-    @results = Product.search(params[:search])
+    @products = params[:search].present? ? Product.search(params[:search]) : Product.all
+    # @results_not_found = @products.empty?
+    # @products = Product.all if @products.empty?
+    @order_item = current_order.order_items.new
   end
 
 

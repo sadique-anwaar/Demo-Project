@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :products do
   	resources :comments , only: [:create, :update, :destroy]
   end
+  resources :order_items
+
+  resource :carts, only: [:show]
 
   
   root to: "pages#index"
