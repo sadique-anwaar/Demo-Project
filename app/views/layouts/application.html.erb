@@ -40,13 +40,16 @@
             <ul class="nav navbar-nav navbar-right">
             </li>
             <% if user_signed_in? %>
-              <li><%= link_to 'Add Product' , new_product_path %></li>
-              <li><%= link_to 'Cart' , carts_path %></li>
+              <li ><%= link_to 'Add Product' , new_product_path %></li>
+
+              
+              <li class="active cart"><%= link_to "#{current_order.order_items.size} Cart" , carts_path %></li>
+
 
               <li class="dropdown">
                 <a id="nav_drop" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   <%= current_user.name%>
-                  <%= image_tag(current_user.avatar , class: "img-circular" , id:"nav_image")%>
+                  <%= image_tag(current_user.avatar , class: "img-circular" , id:"nav_image") if current_user.avatar.attached? %>
                   <span class="caret"></span>
                 </a>
                 
@@ -57,20 +60,7 @@
 
                 </ul>
               </li>
-                    <!-- <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  Dropdown
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><%= link_to 'Account' , edit_user_registration_path %></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li><%= link_to 'Sign Out' , destroy_user_session_path, :method => :delete%></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </div -->
-                
+    
               
             <% else %>
                 <li><%= link_to 'Sign In' , new_user_session_path %></li>
