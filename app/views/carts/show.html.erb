@@ -16,8 +16,10 @@
                             <th style="width:10%"></th>
                         </tr>
                     </thead>
+                    <% @total %>
                 <% if @order_items.size > 0 %>
                     <% @order_items.each do |item| %>
+                        <% @total = item  %>
                     <tbody>
                         <tr>
                             <td data-th="Product">
@@ -57,7 +59,7 @@
                         <tr>
                             <td><%= link_to "< Continue Shopping", products_path, class: "btn btn-warning" %>
                             <td colspan="2" class="hidden-xs"></td>
-                            <td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
+                            <td class="hidden-xs text-center"><strong>Total: <%= @total.order.subtotal%></strong></td>
                             <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
                         </tr>
                     </tfoot>
