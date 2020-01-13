@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :order_items
 
   resource :carts, only: [:show]
+  resources :charges
 
   
   root to: "pages#index"
