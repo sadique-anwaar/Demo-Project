@@ -2,11 +2,19 @@
 
 <%= form_with(model: [ @product, @product.comments.build ], remote: true) do |form| %>
 
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_field :body, class: 'form-control commentbox', autofocus: true, :id => 'commentbox' %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
+  <div class="tab-pane" id="add-comment">
+                    <form action="#" method="post" class="form-horizontal" id="commentForm" role="form"> 
+                        <div class="form-group">
+                            <div class="col-sm-10">
+                            <%= form.text_area :body, class: 'form-control', autofocus: true, :id => 'addComment' , rows:'5' %>
+                            </div>
+                            <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">     
+                                <%= form.submit "Submit Comment", class: 'btn btn-success text-uppercase'%>
+                            </div>
+                        </div>   
+                        </div>
+                                 
+                    </form>
+    </div>
 <% end %>

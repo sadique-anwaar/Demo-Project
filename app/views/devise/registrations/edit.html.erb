@@ -8,13 +8,26 @@
         <form>
           <div class="form-group">
             <div class="row">
-              <div class="col-sm-4">
+              <div class="col-sm-10">                                
+                  <div class="custom-input-file">
+                    <% if resource.avatar.attached? %>
+                          <%= image_tag(resource.avatar) %>
+                      <% else %>
+                          <%= image_tag gravatar_image_url(current_user.email)%>
+                    <% end %>
+                      <label class="uploadPhoto">
+                        Edit
+                        <%= f.file_field :avatar,class: "change-avatar", id: "avatar"  %>
+                    </label>
+                  </div>
+                </div>
+              <!-- <div class="col-sm-4">
                 <% if resource.avatar.attached? %>
                     <%= image_tag(resource.avatar, class: "img-circular") %>
                 <% else %>
                   <%= image_tag gravatar_image_url(current_user.email), class: "img-circular" %>
                 <% end %>
-              </div>
+              </div> -->
             </div>
 
             <div class="col-sm-8">

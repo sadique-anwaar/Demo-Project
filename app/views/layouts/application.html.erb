@@ -28,16 +28,19 @@
               <li><%= link_to "About Us", about_path %></li>
               <li><%= link_to "Contact Us", contact_path %></li>
             </ul>
+            <% if controller_name == 'products' && action_name == 'index' %>
             <form class="navbar-form navbar-left">
-              <%= form_for products_path, :method => 'get' do %>
-              <div class="input-group">
-                <%= text_field_tag :search, params[:search], class:"form-control" %> 
-                <div class="input-group-btn">
+                <%= form_for products_path, :method => 'get' do %>
+                  <div class="input-group">
+                    <%= text_field_tag :search, params[:search], class:"form-control" %> 
+                  <div class="input-group-btn">
                     <%= submit_tag "Search", :name => nil, class:"btn btn-warning"%>
-                </div>
+                  </div>
                 <% end -%>
               </div>
-            </form>            
+            </form> 
+            <% end %>
+           
             <ul class="nav navbar-nav navbar-right">
             </li>
             <% if user_signed_in? %>

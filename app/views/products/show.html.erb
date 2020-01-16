@@ -62,25 +62,34 @@
                         </div>
                     </div>
                 </div>
-                <h2>Comments</h2>
-                <div id ="comment-form">
-                  <%= render partial: 'comments/comment', collection: @product.comments, as: :comment %>
-                </div>
-
-                <% if user_signed_in? %>
-                  <% unless @product.user == current_user  %>
-                    <h2>Add a comment:</h2>
-                    <%= render 'comments/form' %>
-                  <% end %>
-                <% end %>
-
-          
-                
-              </div>
+                 
             </div>
     </div>
 
-
+                        <div class="container">
+                          <div class="row">
+                              <div class="col-sm-10 col-sm-offset-1" id="logout">
+                                  <div class="page-header">
+                                      <h3 class="reviews">Leave your comment</h3>
+                                  </div>
+                                  <div class="comment-tabs">
+                                      <ul class="nav nav-tabs" role="tablist">
+                            
+                                          <div id ="comments-logout">
+                                            <%= render partial: 'comments/comment', collection: @product.comments, as: :comment %>
+                                          </div>
+                                      </ul>            
+                                      
+                                  </div>
+                                  <% if user_signed_in? %>
+                                    <% unless @product.user == current_user  %>
+                                      <%= render 'comments/form' %>
+                                    <% end %>
+                                  <% end %>
+                              </div>
+                            </div>
+                        </div>
+</div>
 
 
 
