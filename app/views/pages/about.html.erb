@@ -1,50 +1,143 @@
-<div class="tab-pane" id="account-settings">
-                    <form action="#" method="post" class="form-horizontal" id="accountSetForm" role="form">
-                        <div class="form-group">
-                            <label for="avatar" class="col-sm-2 control-label">Avatar</label>
-                            <div class="col-sm-10">                                
-                                <div class="custom-input-file">
-                                    <label class="uploadPhoto">
-                                        Edit
-                                        <input type="file" class="change-avatar" name="avatar" id="avatar">
-                                    </label>
+    <div class="container">
+        <div class="row">
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <%= image_tag ("sadique.png") %>
+                                    <h4 class="card-title">SADIQUE</h4>
+                                    <p class="card-text">Sadique has done all the development phase including front-end and back-end</p>
+                                    <a href="#" class="btn btn-warning btn-sm"><i class="fa fa-plus"></i></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">Name</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" name="name" id="name" placeholder="Vilma palma">
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title">Sadique Anwar</h4>
+                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-skype"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-google"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="nickName" class="col-sm-2 control-label">Nick name</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" name="nickName" id="nickName" placeholder="Vilma">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="col-sm-2 control-label">Email</label>
-                            <div class="col-sm-10">
-                              <input type="email" class="form-control" name="email" id="email" placeholder="vilma@mail.com">
-                            </div>
-                        </div>  
-                        <div class="form-group">
-                            <label for="newPassword" class="col-sm-2 control-label">New password</label>
-                            <div class="col-sm-10">
-                              <input type="password" class="form-control" name="newPassword" id="newPassword">
-                            </div>
-                        </div> 
-                        <div class="form-group">
-                            <label for="confirmPassword" class="col-sm-2 control-label">Confirm password</label>
-                            <div class="col-sm-10">
-                              <input type="password" class="form-control" name="confirmPassword" id="confirmPassword">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">                    
-                                <button class="btn btn-primary btn-circle text-uppercase" type="submit" id="submit">Save changes</button>
-                            </div>
-                        </div>            
-                    </form>
+                    </div>
                 </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <%= image_tag ("fazal.png") %>
+                                    <h4 class="card-title">FAZAL</h4>
+                                    <p class="card-text">My Mentor and work buddy who helped me and guided me throughtout the project.</p>
+                                    <a href="#" class="btn btn-warning btn-sm"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title">Fazal Karim</h4>
+                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-skype"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-google"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <%= image_tag ("ahsan.png") %>
+                                    <h4 class="card-title">AHSAN</h4>
+                                    <p class="card-text">Project Manager, who helped in planning, executing, and closing the work of a team to achieve specific goals</p>
+                                    <a href="#" class="btn btn-warning btn-sm"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title">Ahsan Illahi</h4>
+                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-skype"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-google"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
