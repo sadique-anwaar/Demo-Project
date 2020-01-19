@@ -1,3 +1,5 @@
+<div class="container">
+  <h1>Invoice</h1>
 <p>
   <label class="subtotal">
     <span>Subtotal: <%= number_to_currency(@amount * 0.01) %></span>
@@ -22,6 +24,16 @@
 <% end %>
 <p>
   <label class="total">
-    <span>Total: <%= number_to_currency(@charge.amount * 0.01) %></span>
+    <span>Total: <%= number_to_currency(@final_amount * 0.01) %></span>
   </label>
 </p>
+
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Your Purchase"
+          data-locale="auto">
+          </script> 
+
+  
+</div>

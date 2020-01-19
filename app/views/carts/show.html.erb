@@ -29,7 +29,7 @@
                                 </div>
                             </td>
                             <%= form_for(item, remote: true) do |f| %>
-                                <td data-th="Price">PKR <%= item.product.price %></td>
+                                <td data-th="Price">$ <%= item.product.price %></td>
                                 <td data-th="Quantity">
                                     <%= f.number_field :quantity, value: item.quantity.to_i, min: 1, class: 'form-control text-center' %>
                                 </td>
@@ -39,7 +39,6 @@
                                         <i class="fa fa-refresh"></i>
                                     <% end %>
                                     <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, item, method: :delete, remote: true, class: 'btn btn-danger btn-sm '%>
-
                                 </td>
                             <% end %>
                         </tr>
@@ -47,14 +46,14 @@
                     <% end %>
                     <tfoot>
                         <tr class="visible-xs">
-                            <td class="text-center"><strong>Total 1.99</strong>
+                            <td class="text-center"><strong>Total  1.99</strong>
                                 <%=  %>
                             </td>
                         </tr>
                         <tr>
                             <td><%= link_to "< Continue Shopping", products_path, class: "btn btn-warning" %>
                             <td colspan="2" class="hidden-xs"></td>
-                            <td class="hidden-xs text-center"><strong>Total: <%= @total.order.subtotal%></strong></td>
+                            <td class="hidden-xs text-center"><strong>Total: $<%= @total.order.subtotal%></strong></td>
                             <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
                         </tr>
                     </tfoot>

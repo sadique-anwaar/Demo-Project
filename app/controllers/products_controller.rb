@@ -5,9 +5,9 @@ class ProductsController < ApplicationController
  
 
   def index
-    @products = params[:search].present? ? Product.search(params[:search]) : Product.all
-    # @results_not_found = @products.empty?
-    # @products = Product.all if @products.empty?
+    @products = Product.search(params[:search])
+    @results_not_found = @products.empty?
+    @products = Product.all if @products.empty?
     @order_item = current_order.order_items.new
   end
 

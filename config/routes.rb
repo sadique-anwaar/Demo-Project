@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resource :carts, only: [:show]
   resources :charges
+  resources :coupons
   root to: "products#index"
 
 

@@ -47,7 +47,8 @@
               <li ><%= link_to 'Add Product' , new_product_path %></li>
 
               
-              <li class="cart"><%= link_to "#{current_order.order_items.size} Cart" , carts_path %></li>
+              <li class="cart"><%= link_to image_tag("cart.png", class: "cart_nav_icon") ,carts_path %></li>
+              
 
               <li class="dropdown">
                 <a id="nav_drop" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

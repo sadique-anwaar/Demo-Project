@@ -19,27 +19,28 @@ class ChargesController < ApplicationController
 		    else
 		      @final_amount = @coupon.apply_discount(@amount.to_i)
 	    	  @discount_amount = (@amount - @final_amount)
+
 		    end
 
-		  charge_metadata = {
-	    	:coupon_code => @coupon.code,
-	    	:coupon_discount => @coupon.discount_percent_human
-	  	  }
+		#   charge_metadata = {
+	 #    	:coupon_code => @coupon.code,
+	 #    	:coupon_discount => @coupon.discount_percent_human
+	 #  	  }
 
-		   customer = Stripe::Customer.create({
-		    email: params[:stripeEmail],
-		    source: params[:stripeToken],
-		  	})
+		#    customer = Stripe::Customer.create({
+		#     email: params[:stripeEmail],
+		#     source: params[:stripeToken],
+		#   	})
 
-		  stripe_charge = Stripe::Charge.create({
-		    customer: customer.id,
-		    amount: @final_amount,
-		    description: 'Rails Stripe customer',
-		    currency: 'usd',
-		    metadata: charge_metadata,
-		  })
+		#   stripe_charge = Stripe::Charge.create({
+		#     customer: customer.id,
+		#     amount: @final_amount,
+		#     description: 'Rails Stripe customer',
+		#     currency: 'usd',
+		#     metadata: charge_metadata,
+		#   })
 
-		@charge = Charge.create!(amount: @final_amount, coupon: @coupon, stripe_id: stripe_charge.id)
+		# @charge = Charge.create!(amount: @final_amount, coupon: @coupon, stripe_id: stripe_charge.id)
 		end
 	end
 end

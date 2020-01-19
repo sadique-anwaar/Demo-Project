@@ -13,10 +13,13 @@
     <%= label_tag(:couponCode, 'Coupon:') %>
     <%= text_field_tag(:couponCode) %>
   </p>
+  <%= submit_tag " Validate", :class => "btn btn-primary" %> 
 
+  
+<!-- 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Your Purchase"
           data-locale="auto">
-          </script>
+          </script> -->
 <% end %>
