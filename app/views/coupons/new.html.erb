@@ -1,0 +1,14 @@
+<%= form_tag coupons_path do %>
+  <% if flash[:error].present? %>
+    <div id="error_explanation">
+      <p><%= flash[:error] %></p>
+    </div>
+  <% end %>
+
+  <p>
+    <%= label_tag(:couponCode, 'Coupon:') %>
+    <%= text_field_tag(:couponCode) %>
+  </p>
+  <%= submit_tag " Validate", :class => "btn btn-primary" %> 
+
+<% end %>

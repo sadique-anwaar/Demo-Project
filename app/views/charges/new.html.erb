@@ -4,22 +4,108 @@
       <p><%= flash[:error] %></p>
     </div>
   <% end %>
-  <p>
-    <label class="amount">
-      <span>Amount: $5.00</span>
-    </label>
-  </p>
-  <p>
-    <%= label_tag(:couponCode, 'Coupon:') %>
-    <%= text_field_tag(:couponCode) %>
-  </p>
-  <%= submit_tag " Validate", :class => "btn btn-primary" %> 
 
-  
-<!-- 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Your Purchase"
-          data-locale="auto">
-          </script> -->
+  <div class="container invoice">
+    <div class="row">
+      <div class="col-xs-9">
+        <div class="invoice-title">
+          <h2>Invoice</h2><h3 class="pull-right">Order ID:  <%= current_order.id %></h3>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-xs-6">
+            <address>
+            <strong>Billed To:</strong><br>
+              <%= current_order.user.name %><br>
+              <%= current_order.user.email %>
+            </address>
+          </div>
+          <div class="col-xs-6 text-right">
+            <address>
+              <strong>Shipped To:</strong><br>
+              Plot B 15, Sector B Phase 5, <br>
+              Defense Housing Authority,<br>
+               Lahore, Pakistan.
+            </address>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    <div class="row">
+      <div class="col-md-9">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Order summary</strong></h3>
+          </div>
+          <div class="panel-body">
+            <div class="table-responsive">
+              <table class="table table-condensed">
+                <thead>
+                  <tr>
+                  <td><strong>Products</strong></td>
+                  <td class="text-center"><strong>Quantity</strong></td>
+                  <td class="text-right"><strong>Price</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% current_order.order_items.each do |item| %>
+                  <tr>
+                    <td><%= item.product.name %></td>
+                    <td class="text-center"><%= item.quantity %></td>
+                    <td class="text-right">$<%= item.total_price %></td>
+                  </tr>
+                 <% end %>
+                  <tr>
+                    <td class="thick-line"></td>
+                    <td class="thick-line text-center"><strong>Subtotal</strong></td>
+                    <td class="thick-line text-right">$<%= current_order.subtotal%></td>
+                  </tr>
+                  <tr>
+                    <td class="no-line"></td>
+                    <td class="no-line text-center"><strong>Shipping</strong></td>
+                    <td class="no-line text-right"> $0</td>
+                  </tr>
+                  <tr>
+                    <td class="no-line"></td>
+                    <td class="no-line text-center"><strong>Discount</strong></td>
+                    <td class="no-line text-right" id="discount_applied">$0</td>
+                  </tr>
+                  <tr>
+                    <td class="no-line"></td>
+                    <td class="no-line text-center"><strong>Total</strong></td>
+                    <td class="no-line text-right" id="sub_total">$<%= current_order.subtotal%></td>
+                  </tr>
+
+                  <tr>
+                    <td class="no-line">
+                      <div class="form-group">
+                        <%= label_tag(:couponCode, 'Coupon:') %>
+                        <div class="input-group">
+
+                          <%= text_field_tag :couponCode, params[:couponCode], class:"form-control" %> 
+                          <%= hidden_field_tag 'subtotal_amount', @total  %>
+                          <%= hidden_field_tag 'discouned_total', @final_amount, id: 'final_amount', value: @total %>
+
+                          <span class="input-group-btn">
+                          <button class="btn btn-warning" id="validate-coupon">Apply</button>
+                          </span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="no-line text-right">
+                      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                      data-description="Your Purchase"
+                      data-locale="auto"></script>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>

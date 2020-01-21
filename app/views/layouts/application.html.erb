@@ -20,13 +20,13 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Demo Project</a>
+            <%= image_tag ("logo.png"), class: "navbar-brand" , id: "brand_img"%>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><%= link_to "Home", products_path%></li>
-              <li><%= link_to "About Us", about_path %></li>
-              <li><%= link_to "Contact Us", contact_path %></li>
+              <li><%= link_to "Home", products_path , class: "active" %></li>
+              <li><%= link_to "About Us", about_path, class: "active" %></li>
+              <li><%= link_to "Contact Us", contact_path,class: "active" %></li>
             </ul>
             <% if controller_name == 'products' && action_name == 'index' %>
             <form class="navbar-form navbar-left">
@@ -40,16 +40,12 @@
               </div>
             </form> 
             <% end %>
-           
-            <ul class="nav navbar-nav navbar-right">
             </li>
+
+            <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li ><%= link_to 'Add Product' , new_product_path %></li>
-
-              
               <li class="cart"><%= link_to image_tag("cart.png", class: "cart_nav_icon") ,carts_path %></li>
-              
-
               <li class="dropdown">
                 <a id="nav_drop" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   <%= current_user.name%>
@@ -61,22 +57,17 @@
                   <li><%= link_to 'Account' , edit_user_registration_path %></li>
                   <li role="separator" class="divider"></li>
                   <li><%= link_to 'Sign Out' , destroy_user_session_path, :method => :delete%></li>
-
                 </ul>
               </li>
-              
             <% else %>
                 <li><%= link_to 'Sign In' , new_user_session_path %></li>
                 <li><%= link_to 'Sign Up' , new_user_registration_path %></li>
             <% end %>
-
-
             </ul>
           </div>
         </div>
       </nav>
     <%= yield %>
   </body>
-
 </html>
 

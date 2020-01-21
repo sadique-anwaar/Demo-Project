@@ -16,4 +16,38 @@
 //= require jquery
 //= require bootstrap-sprockets
 
-//= require_tree .
+//= require_tree . 
+
+$(document).on('click', '#validate-coupon',(event)=> {
+	event.preventDefault()
+	const total = $('#subtotal_amount').val()
+	const code = $('#couponCode').val()
+	$.ajax({type: 'GET',
+			data: { total: total, couponCode: code},
+		    url: '/charges/validate_coupon',
+		    dataType: 'JSON',
+		    success: (response) => {
+				$('#sub_total').text(`$${response.final_amount}`)
+				$('#discount_applied').text(`${response.discount}`)
+				$('#final_amount').val(response.final_amount)
+			}});
+});
+
+
+$(document).on('change' , '.update-item-quantity', (event)=> {
+	const quantity = $(event.target).val()
+	const itemID = $(event.target).data('item-id')
+	$.ajax({type: 'PATCH',
+			data: { authenticity_token: $('[name="csrf-token"]')[0].content,
+			        quantity: quantity },
+			url: `/order_items/${ itemID }`,
+			dataType: 'JSON',
+			success: (response) =>{
+				console.log(response.message)
+				$(`#update-unit-total-${ itemID }`).text(`$ ${response.item_total}`)
+				$('#order-subtotal').text(`$ ${response.order_total}`)
+				$(event.target).val(response.quantity)
+			}
+
+	})
+})

@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :order_items
 
   resource :carts, only: [:show]
-  resources :charges
+  resources :charges, only: [:new, :create]
+  get '/charges/validate_coupon', to: 'charges#validate_coupon', as: :validate_coupon
   resources :coupons
   root to: "products#index"
 

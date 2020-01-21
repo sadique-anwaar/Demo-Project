@@ -1,4 +1,3 @@
-
   <div>
     <div id = "div1" class="container">
       <%= form_with(model: product, local: true) do |form| %>
@@ -19,33 +18,39 @@
           <div class="form-group">
             <%= form.label :name %>
             <%= form.text_field :name, autofocus: true, class: "form-control",
-            placeholder: "Product Name" %>
+            placeholder: "Product Name", required: true  %>
           </div>
 
           <div class="field">
             <%= form.label :price %>
-            <%= form.number_field :price, class: "form-control", placeholder: "Product Price" %>
+            <%= form.number_field :price, class: "form-control", placeholder: "Product Price", required: true  %>
           </div>
 
           <div class="field">
             <%= form.label :quantity %>
-            <%= form.number_field :quantity, class: "form-control", placeholder: "Product Quantity" %>
+            <%= form.number_field :quantity, class: "form-control", placeholder: "Product Quantity", required: true  %>
           </div>
 
-          <div class="field">
+        
+          <form class="md-form">
             <%= form.label :images %>
-            <%= form.file_field :images, multiple: true %>
-          </div>
+              <div class="file-field">
+                <div class="btn btn-info btn-sm float-left">
+                  <span>Choose files</span>
+                  <%= form.file_field :images, multiple: true, class: "form-control", required: true %>
+                </div>
+              </div>
+        </form>
 
       
-          <div class="form-group shadow-textarea">
+          <div class="form-group shadow-textarea"><br>
             <label for="exampleFormControlTextarea6">Product Description</label>
-            <%= form.text_area :description, class: "form-control z-depth-1", id: "exampleFormControlTextarea6", rows: "3", placeholder: "Write something here..." %>
+            <%= form.text_area :description, class: "form-control z-depth-1", id: "exampleFormControlTextarea6", rows: "3", placeholder: "Write something here...", required: true  %>
           </div>
 
 
           <div class="actions">
-            <%= form.submit "Create Product", class: "btn btn-success btn-lg" %>
+            <%= form.submit "Save", class: "btn btn-warning btn-lg" %>
           </div>
 
          </form>

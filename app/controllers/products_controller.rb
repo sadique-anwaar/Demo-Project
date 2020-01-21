@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
  
 
@@ -8,12 +8,16 @@ class ProductsController < ApplicationController
     @products = Product.search(params[:search])
     @results_not_found = @products.empty?
     @products = Product.all if @products.empty?
-    @order_item = current_order.order_items.new
+    if user_signed_in?
+      @order_item = current_order.order_items.new
+    end
   end
 
 
   def show
-    @order_item = current_order.order_items.new
+    if user_signed_in?
+      @order_item = current_order.order_items.new
+    end  
   end
 
   def new
@@ -29,10 +33,8 @@ class ProductsController < ApplicationController
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,10 +44,8 @@ class ProductsController < ApplicationController
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
-        format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,7 +55,6 @@ class ProductsController < ApplicationController
     @product.destroy
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
