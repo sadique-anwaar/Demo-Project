@@ -13,7 +13,7 @@
                   <% if resource.avatar.attached? %>
                     <%= image_tag(resource.avatar) %>
                   <% else %>
-                    <%= image_tag gravatar_image_url(current_user.email)%>
+                    <%= image_tag('default.png') %>
                   <% end %>
                   <label class="uploadPhoto">
                     Edit

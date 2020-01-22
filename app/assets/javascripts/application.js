@@ -18,6 +18,7 @@
 
 //= require_tree . 
 
+
 $(document).on('click', '#validate-coupon',(event)=> {
 	event.preventDefault()
 	const total = $('#subtotal_amount').val()
@@ -27,10 +28,19 @@ $(document).on('click', '#validate-coupon',(event)=> {
 		    url: '/charges/validate_coupon',
 		    dataType: 'JSON',
 		    success: (response) => {
-				$('#sub_total').text(`$${response.final_amount}`)
-				$('#discount_applied').text(`${response.discount}`)
-				$('#final_amount').val(response.final_amount)
-			}});
+		    	if (response.message == 'applied') {
+		    		$('#sub_total').text(`$${response.final_amount}`)
+						$('#discount_applied').text(`${response.discount}`)
+						$('#final_amount').val(total)
+						$('#error_msg').text(`Coupon Applied`)			
+		    	}
+					else
+					{
+						$('#error_msg').text(`Invalid Coupon`)
+					}
+			}
+
+		});
 });
 
 

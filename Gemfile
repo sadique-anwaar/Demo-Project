@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
+
+gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rails', '~> 5.2.3'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
@@ -9,20 +11,21 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'devise', '~> 4.2'
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'jquery-rails'
-gem 'bootsnap', '>= 1.1.0', require: false
+
+
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+gem 'devise', '~> 4.2'
 gem 'gravatar', '~> 1.0'
-gem 'gravatar_image_tag' , github: 'mdeering/gravatar_image_tag'
-gem 'thinking-sphinx'
 gem 'mysql2', '~> 0.5.2'
 gem 'stripe'
+gem 'thinking-sphinx'
+
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'hirb'
-
 end
 
 group :development do

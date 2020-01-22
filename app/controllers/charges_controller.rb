@@ -13,17 +13,26 @@ class ChargesController < ApplicationController
 	  if !@code.blank?
 		  @coupon = Coupon.get(@code)
 		    if @coupon.nil?
-		    	flash.now[:alert] = 'Invalid or expired coupon.'
+		    	message = "invalid"
+
+		    	respond_to do |format|
+						format.json { render json: { message: message} }
+					end
+					
 		    else
 		      @final_amount = @coupon.apply_discount(@amount.to_i)
 	    	  @discount_amount = (@amount - @final_amount)
-	    	  message = 'Coupon applied.'
+	    	  message = "applied"
+	    	  respond_to do |format|
+						format.json { render json: { message: message, final_amount: @final_amount, discount: @coupon.discount_percent_human } }
+					end
 		    end
 		end
+	
+	end
 
 	def create
-
-	  @amount = params[:discouned_total].to_i * 100
+	  @amount = params[:discounted_total].to_i * 100
 	  @coupon = Coupon.get(params[:couponCode])
 	  @final_amount = @coupon&.apply_discount(@amount) || @amount
 	  @discount_amount = (@amount - @final_amount)
@@ -49,10 +58,4 @@ class ChargesController < ApplicationController
   		redirect_to new_charge_path
 	end
 
-		
-
-		respond_to do |format|
-			format.json { render json: { message: message, final_amount: @final_amount, discount: @coupon.discount_percent_human } }
-		end
-	end
 end

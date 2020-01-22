@@ -55,10 +55,9 @@
   padding: 0px;
 }
 
-#brand_img {
+.brand_img {
   margin-top:  -25px;
   height: 100px;
-  width: 100;
   margin-bottom: -30px;
 }
 
@@ -404,6 +403,7 @@ img {
 
 .tab-content {
   overflow: hidden; }
+
   .tab-content img {
     width: 100%;
     -webkit-animation-name: opacity;
@@ -546,10 +546,14 @@ img {
   color: green;
 }
 .page-header { position: relative; }
+
 .reviews {
     color: #555;    
     font-weight: bold;
     margin: 10px auto 20px;
+}
+.fa-search{
+  color: red;
 }
 .notes {
     color: #999;

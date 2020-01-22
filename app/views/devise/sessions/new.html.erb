@@ -11,7 +11,7 @@
     <div class="col-md-6 col-sm-12">
       <div class="login-form">
          <form>
-          <h2>Log in</h2>
+          <h2>Sign in</h2>
             <div class="form-group">
                <%= f.label :email %>
                <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: "form-control", placeholder: "Email Address" %>
@@ -20,6 +20,11 @@
                <%= f.label :password %>
                <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Password" %>
             </div>
+            <% flash.each do |key, value| %>
+                <div class="<%= flash_class(key) %>">
+                   <h4 class="stock"><%= value %> </h4>
+                </div>
+              <% end %>
             <div>
             <% if devise_mapping.rememberable? %>
               <div class="field">
@@ -28,6 +33,7 @@
               </div>
               <%= f.submit "Log in", class: "btn btn-success" %> 
               <%= render "devise/shared/links" %>
+              
             <% end %>
          </form>
       </div>

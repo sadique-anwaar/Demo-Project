@@ -46,13 +46,17 @@
               </td>
             </tr>
               <tr>
-                <td><%= link_to '<i class="fa fa-angle-left"></i> Checkout'.html_safe, products_path, class: "btn btn-warning" %></td>
+                <td><%= link_to '<i class="fa fa-angle-left"></i> Continue Shopping'.html_safe, products_path, class: "btn btn-warning" %></td>
                 <td colspan="2" class="hidden-xs"></td>
                 <td id="order-subtotal" class="hidden-xs text-center"><strong>Total: $<%= @total.order.subtotal%></strong></td>
 
                 <td><%= link_to 'Checkout <i class="fa fa-angle-right"></i>'.html_safe, new_charge_path, class: 'btn btn-success btn-block'%></td>
               </tr>
+            <% else %>
+            <tr>
+              <td style="text-align: center;"><h4 class="stock">Cart is Empty!!</h4></td>
+            </tr>
           </tfoot>
       </table>
-  <% end %>
+    <% end %>
 </div>

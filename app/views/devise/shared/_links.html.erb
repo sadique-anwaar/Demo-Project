@@ -1,5 +1,6 @@
 <%- if controller_name != 'sessions' %>
   <%= link_to "Log in", new_session_path(resource_name) %><br />
+  flash[:error] = "Invalid email or password"
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>

@@ -5,6 +5,8 @@
     </div>
   <% end %>
 
+
+
   <div class="container invoice">
     <div class="row">
       <div class="col-xs-9">
@@ -22,7 +24,7 @@
           </div>
           <div class="col-xs-6 text-right">
             <address>
-              <strong>Shipped To:</strong><br>
+              <strong>Shipping Address:</strong><br>
               Plot B 15, Sector B Phase 5, <br>
               Defense Housing Authority,<br>
                Lahore, Pakistan.
@@ -85,20 +87,23 @@
 
                           <%= text_field_tag :couponCode, params[:couponCode], class:"form-control" %> 
                           <%= hidden_field_tag 'subtotal_amount', @total  %>
-                          <%= hidden_field_tag 'discouned_total', @final_amount, id: 'final_amount', value: @total %>
+                          <%= hidden_field_tag 'discounted_total', @final_amount, id: 'final_amount', value: @total %>
 
                           <span class="input-group-btn">
+
                           <button class="btn btn-warning" id="validate-coupon">Apply</button>
                           </span>
                         </div>
                       </div>
                     </td>
+                    <td class="no-line"><h4 id="error_msg"></h4></td>
                     <td class="no-line text-right">
                       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                       data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                       data-description="Your Purchase"
                       data-locale="auto"></script>
                     </td>
+
                   </tr>
                 </tbody>
               </table>
