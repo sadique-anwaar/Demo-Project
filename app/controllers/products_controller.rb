@@ -18,15 +18,14 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = current_user.products.build    
+    @product = current_user.products.new    
   end
 
   def edit
   end
 
   def create
-    @product = current_user.products.build(product_params)
-
+    @product = current_user.products.new(product_params)
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
@@ -35,7 +34,6 @@ class ProductsController < ApplicationController
       end
     end
   end
-
 
   def update
     respond_to do |format|
@@ -47,7 +45,6 @@ class ProductsController < ApplicationController
     end
   end
 
-
   def destroy
     @product.destroy
     respond_to do |format|
@@ -56,7 +53,6 @@ class ProductsController < ApplicationController
   end
 
   private
-
     def set_product
       @product = Product.find(params[:id])
     end

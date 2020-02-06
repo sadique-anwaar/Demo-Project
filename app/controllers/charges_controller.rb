@@ -1,5 +1,4 @@
 class ChargesController < ApplicationController
-
 	def new
 		@total = current_order.subtotal
 	end
@@ -28,7 +27,6 @@ class ChargesController < ApplicationController
 					end
 		    end
 		end
-	
 	end
 
 	def create
@@ -56,6 +54,7 @@ class ChargesController < ApplicationController
 		rescue Stripe::CardError => e
   		flash[:error] = e.message
   		redirect_to new_charge_path
+  	end
 	end
 
 end

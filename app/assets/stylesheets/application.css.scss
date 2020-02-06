@@ -44,7 +44,6 @@
 }
 
 
-
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     background-color: #f0ad4e;
     color: #000;
@@ -73,12 +72,6 @@ padding-left: 20%;
 padding-right: 20%;
 
 }
-
-
-
-
-
-
 
 .main-head{
     height: 150px;
@@ -270,7 +263,7 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
 }
 .product-grid2 .social li a:hover{
   color:#fff;
-  background-color:#3498db;
+  background-color: #dc3545;
   box-shadow:0 0 10px rgba(0,0,0,.5);
 }
 .product-grid2 .social li a:after,.product-grid2 .social li a:before{
@@ -305,7 +298,7 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
   transition:all .3s;
 }
 .product-grid2 .add-to-cart:hover{
-  background-color:#3498db;
+  background-color: #dc3545;
   text-decoration:none;
 }
 .product-grid2:hover .add-to-cart{
@@ -354,7 +347,7 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
   border-radius: 50%;
 }
 .btn-circle:hover {
-  background: #3498db;
+  background: #dc3545;
   box-shadow:0 0 10px rgba(0,0,0,.5);
 
 }
@@ -555,6 +548,13 @@ img {
 .fa-search{
   color: red;
 }
+.plus{
+background-color: #dc3545;
+border-color: #dc3545;
+}
+.fa-upload{
+  color: #000;
+}
 .notes {
     color: #999;
     font-size: 12px;
@@ -566,6 +566,7 @@ img {
     right: 25px;
     top: 25px;
 }
+
 .media-date li { padding: 0; }
 .media-date li:first-child:before { content: ''; }
 .media-date li:before { 
@@ -573,9 +574,12 @@ img {
     margin-left: -2px; 
     margin-right: 2px;
 }
-.media-comment { margin-bottom: 20px; }
-.media-replied { margin: 0 0 20px 50px; }
-.media-replied .media-heading { padding-left: 6px; }
+
+.media-comment {
+ margin-bottom: 20px; 
+ font-size: 14px;
+ }
+
 
 .btn-circle span { padding-right: 6px; }
 .embed-responsive { margin-bottom: 20px; }
@@ -772,6 +776,71 @@ section .section-title {
 .table > tbody > tr > .thick-line {
     border-top: 1px solid;
 }
+}
+
+.contact_body{
+    background-image: url(contact.jpg);
+}
+.contact-form{
+    background: #fff;
+    margin-top: 7.5%;
+    margin-bottom: 5%;
+    width: 70%;
+}
+.contact-form .form-control{
+    border-radius:1rem;
+}
+.contact-image{
+    text-align: center;
+}
+.contact-image img{
+    border-radius: 6rem;
+    width: 11%;
+    margin-top: -3%;
+    transform: rotate(29deg);
+}
+.contact-form form{
+    padding: 14%;
+}
+.contact-form form .row{
+    margin-bottom: -7%;
+}
+.contact-form h3{
+    margin-bottom: 8%;
+    margin-top: -10%;
+    text-align: center;
+    color: #0062cc;
+}
+.contact-form .btnContact {
+    width: 50%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #dc3545;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+.btnContactSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #fff;
+    background-color: #0062cc;
+    border: none;
+    cursor: pointer;
+}
+
+.btnButton {
+    width: 30%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #dc3545;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
 }
 
 

@@ -1,7 +1,8 @@
 class Order < ApplicationRecord
 	has_many :order_items
-	before_save :set_subtotal
 	belongs_to :user
+
+	before_save :set_subtotal
 	before_destroy :update_product_quantity
 
 	def subtotal
@@ -11,7 +12,8 @@ class Order < ApplicationRecord
 
 	private
 		def set_subtotal
-			self[:subtotal] = subtotal
+			# self[:subtotal] = subtotal
+			self.subtotal = subtotal
 		end
 
 		def update_product_quantity
